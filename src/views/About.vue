@@ -1,14 +1,24 @@
 <template>
-  <div class="about">
-    <h1>  About Parametro passado: {{$route.params.option}} </h1>
+  <div>
+    <div>
+      <h1>{{$route.name}}</h1>
+    </div>
+    <div>
+      <h3>{{arrayWords}}</h3>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
   name: 'About',
+  data () {
+    return {
+      arrayWords: []
+    }
+  },
   created () {
-    console.log(this.$router.history.current.query)
+    this.arrayWords = this.$route.params.arrayWords
   }
 }
 </script>

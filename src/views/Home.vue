@@ -1,16 +1,25 @@
 <template>
-  <div class="home">
-    <h1> Hello </h1>
+  <div>
+    <div>
+      <h1>{{$route.name}}</h1>
+    </div>
+    <div>
+      <h3>{{arrayWords}}</h3>
+    </div>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
 
 export default {
-  name: 'home',
+  name: 'Home',
+  data () {
+    return {
+      arrayWords: []
+    }
+  },
   created () {
-    console.log(this.$router.history.current.query)
+    this.arrayWords = this.$route.params.arrayWords
   }
 }
 </script>

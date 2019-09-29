@@ -1,31 +1,34 @@
 <template>
   <div id="app">
     <div id="nav">
-      <input type="text" v-model="param"/>
-      <button @click="changePage('home', arrWords)">Home</button>
-      <button @click="changePage('about', arrWords)">About</button>
-      <button @click="changePage('help', arrWords)">Help</button>
-      <button @click="add()"> Add word </button>
+      <input type="text" v-model="param" />
+      <button @click="add()">Add word</button>
+      <div class="v-mt-md">Array Words: {{arrayWords}}</div>
+      <div>
+        <button @click="changePage('home')">Home</button>
+        <button @click="changePage('about')">About</button>
+        <button @click="changePage('help')">Help</button>
+      </div>
     </div>
-    <router-view/>
+    <router-view />
   </div>
 </template>
 <script>
-import { log } from 'util'
 export default {
   data () {
     return {
       param: '',
-      arrWords: []
+      arrayWords: []
     }
   },
   methods: {
-    changePage (routeName, words) {
-      this.$router.push({ name: routeName, query: { value: words } })
-      this.arrWords = []
+    changePage (routeName) {
+      this.$router.push({ name: routeName, params: { arrayWords: this.arrayWords } })
+      this.arrayWords = []
     },
     add () {
-      this.arrWords.push(this.param)
+      this.arrayWords.push(this.param)
+      this.param = ''
     }
   }
 }
@@ -33,7 +36,7 @@ export default {
 
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
@@ -50,5 +53,10 @@ export default {
 
 #nav a.router-link-exact-active {
   color: #42b983;
+}
+
+.v-mt-md {
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 </style>

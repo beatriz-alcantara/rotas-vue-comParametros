@@ -1,12 +1,23 @@
 <template>
   <div>
-    <h1> Help parametro passado: {{$route.params.topic}} </h1>
+    <div>
+      <h1>{{$route.name}}</h1>
+    </div>
+    <div>
+      <h3>{{arrayWords}}</h3>
+    </div>
   </div>
 </template>
 <script>
 export default {
+  name: 'Help',
+  data () {
+    return {
+      arrayWords: []
+    }
+  },
   created () {
-    console.log(this.$router.history.current.query)
+    this.arrayWords = this.$route.params.arrayWords
   }
 }
 </script>
