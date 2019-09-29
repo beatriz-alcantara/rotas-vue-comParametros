@@ -9,6 +9,8 @@
 
 export default {
   name: 'home',
-  components: {}
+  created () {
+    console.log(this.$router.history.current.query)
+  }
 }
 </script>

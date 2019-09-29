@@ -2,23 +2,29 @@
   <div id="app">
     <div id="nav">
       <input type="text" v-model="param"/>
-      <button @click="changePage('', param)">Home</button>
-      <button @click="changePage('about', param)">About</button>
-      <button @click="changePage('help', param)">Help</button>
+      <button @click="changePage('', arrWords)">Home</button>
+      <button @click="changePage('about', arrWords)">About</button>
+      <button @click="changePage('help', arrWords)">Help</button>
+      <button @click="add()"> Add word </button>
     </div>
     <router-view/>
   </div>
 </template>
 <script>
+import { log } from 'util'
 export default {
   data () {
     return {
-      param: ''
+      param: '',
+      arrWords: []
     }
   },
   methods: {
-    changePage (routeName, param) {
-      this.$router.push({ path: `/${routeName}/${param}` })
+    changePage (routeName, words) {
+      this.$router.push({ path: `/${routeName}`, query: { value: words } })
+    },
+    add () {
+      this.arrWords.push(this.param)
     }
   }
 }
