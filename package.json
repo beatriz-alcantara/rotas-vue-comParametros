@@ -45,5 +45,17 @@
   "browserslist": [
     "> 1%",
     "last 2 versions"
-  ]
+  ],
+  "description": "## Project setup ``` yarn install ```",
+  "main": "babel.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Beatriz813/rotas-vue-comParametros.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Beatriz813/rotas-vue-comParametros/issues"
+  },
+  "homepage": "https://github.com/Beatriz813/rotas-vue-comParametros#readme"
 }

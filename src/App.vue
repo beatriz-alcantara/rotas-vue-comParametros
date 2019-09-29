@@ -1,13 +1,28 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about/Parametro1">About</router-link> |
-      <router-link to="/help/Parametro2">Help</router-link>
+      <input type="text" v-model="param"/>
+      <button @click="changePage('', param)">Home</button>
+      <button @click="changePage('about', param)">About</button>
+      <button @click="changePage('help', param)">Help</button>
     </div>
     <router-view/>
   </div>
 </template>
+<script>
+export default {
+  data () {
+    return {
+      param: ''
+    }
+  },
+  methods: {
+    changePage (routeName, param) {
+      this.$router.push({ path: `/${routeName}/${param}` })
+    }
+  }
+}
+</script>
 
 <style>
 #app {
